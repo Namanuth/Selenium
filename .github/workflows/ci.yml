@@ -27,6 +27,10 @@ jobs:
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
 
+      - name: Pre-download ChromeDriver
+        run: |
+          python3 -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
+
       - name: Run Selenium Tests
         env:
           CI: true
