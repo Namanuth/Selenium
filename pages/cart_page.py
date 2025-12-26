@@ -7,6 +7,7 @@ class CartPage(BasePage):
 
     def go_to_cart(self):
         self.click(self.CART_ICON)
+        self.wait.until(EC.presence_of_element_located(self.CHECKOUT_BTN))
 
     def checkout(self):
-        self.click(self.CHECKOUT_BTN)
+        self.wait.until(EC.element_to_be_clickable(self.CHECKOUT_BTN)).click()

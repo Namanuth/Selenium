@@ -29,6 +29,7 @@ def test_e2e_flow(driver, config, user_type):
 
     cart = CartPage(driver)
     cart.go_to_cart()
+    assert "cart" in driver.current_url
     driver.save_screenshot("screenshots/cart.png")
 
     cart.checkout()
